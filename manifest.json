@@ -1,19 +1,35 @@
 {
-  "manifest_version": 2,
-  "name": "page-saver",
-  "version": "0",
+    "manifest_version": 2,
+    "name": "page-saver",
+    "version": "0",
+    "description": "Provides a button to save several pages. Those pages are saved in a favorites folder.",
+    "homepage_url": "https://github.com/EBoespflug/page-saver",
 
-  "description": "Adds a solid red border to all webpages matching mozilla.org.",
+    "icons": {
+        "48": "icons/border-48.png"
+    },
 
-  "icons": {
-    "48": "icons/border-48.png"
-  },
+    "permissions": [
+      "bookmarks",
+      "tabs"
+    ],
 
-  "content_scripts": [
-    {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["page-saver.js"]
+    "content_scripts": [
+        {
+            "matches": ["*://*.mozilla.org/*"],
+            "js": ["page-saver.js"]
+        }
+    ],
+
+    "browser_action": {
+        "default_icon": {
+            "32": "icons/icon-32.png",
+            "64": "icons/icon-64.png"
+        },
+        "default_title": "Save pages"
+    },
+
+    "background": {
+        "scripts": ["background.js"]
     }
-  ]
-
 }
